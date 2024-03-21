@@ -30,10 +30,10 @@ namespace JogoVelha.App
         public void RealizarJogada(Jogador jogador, int linha, int coluna)
         {
             if (!JogoIniciado)
-                throw new Exception("Jogo não iniciado, jogada não pode ser realizada");
+                throw new Exception("Jogo nao iniciado, jogada nao pode ser realizada");
 
             if (JogadorDaVez.Simbolo != jogador.Simbolo)
-                throw new Exception("Jogada não realizada, o Jogador fazer jogadas seguidas");
+                throw new Exception("Jogada nao realizada, o Jogador fazer jogadas seguidas");
 
             Tabuleiro.RealizaJogada(jogador, linha, coluna);
 

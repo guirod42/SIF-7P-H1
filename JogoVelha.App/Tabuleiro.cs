@@ -30,7 +30,7 @@ namespace JogoVelha.App
         public void RealizaJogada(Jogador jogador, int linha, int coluna)
         {
             if (CelulaOcupada(linha, coluna))
-                throw new Exception("Celula ocupada, jogada não pode ser realizada");
+                throw new Exception("Celula ocupada, jogada nao pode ser realizada");
 
             matriz[linha, coluna] = jogador.Simbolo;
         }

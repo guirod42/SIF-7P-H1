@@ -65,7 +65,7 @@ namespace JogoVelha.Tests
             //Assert
             var excecao = Assert.Throws<Exception>(() => jogoVelha.RealizarJogada(jogoVelha.JogadorX, 0, 0));
 
-            Assert.Equal("Jogada não realizada, o Jogador fazer jogadas seguidas", excecao.Message);
+            Assert.Equal("Jogada nao realizada, o Jogador fazer jogadas seguidas", excecao.Message);
         }
 
         [Fact(DisplayName = "Jogador X Venceu a Partida")]
