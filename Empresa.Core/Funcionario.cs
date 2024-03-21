@@ -12,7 +12,7 @@
         {
             DadosCPF resp = DadosCPF.VerificarCPF(cpf);
             if (!resp.Valido) throw new Exception("CPF inválido");
-            if (salario <= 0) throw new Exception("Salário zerado ou negativo");
+            if (salario <= 0) throw new Exception("Salario zerado ou negativo");
             if (habilidades.Count < 3) throw new Exception("Precisa de ao menos 3 habilidades");
             int qtdHab = 0;
             foreach (var hab in habilidades)

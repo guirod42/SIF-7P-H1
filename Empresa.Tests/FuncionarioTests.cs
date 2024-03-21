@@ -34,9 +34,9 @@ namespace Empresa.Tests
             }
 
             [Theory]
-            [InlineData(0, "Salário zerado ou negativo")]
-            [InlineData(-1, "Salário zerado ou negativo")]
-            [InlineData(-1000, "Salário zerado ou negativo")]
+            [InlineData(0, "Salario zerado ou negativo")]
+            [InlineData(-1, "Salario zerado ou negativo")]
+            [InlineData(-1000, "Salario zerado ou negativo")]
             public void TestarSalarioZeroOuNegativo(double salarioTeste, string resultado)
             {
                 var resultadoExcecao = Assert.Throws<Exception>(()
