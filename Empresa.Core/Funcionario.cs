@@ -11,7 +11,7 @@
         public Funcionario(string nome, double salario, string cpf, List<string> habilidades)
         {
             DadosCPF resp = DadosCPF.VerificarCPF(cpf);
-            if (!resp.Valido) throw new Exception("CPF inválido");
+            if (!resp.Valido) throw new Exception("CPF invalido");
             if (salario <= 0) throw new Exception("Salario zerado ou negativo");
             if (habilidades.Count < 3) throw new Exception("Precisa de ao menos 3 habilidades");
             int qtdHab = 0;

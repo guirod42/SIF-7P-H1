@@ -60,9 +60,9 @@ namespace Empresa.Tests
             }
 
             [Theory]
-            [InlineData("", "CPF inválido")]
-            [InlineData("360514040810597", "CPF inválido")]
-            [InlineData("513.666.800-820", "CPF inválido")]
+            [InlineData("", "CPF invalido")]
+            [InlineData("360514040810597", "CPF invalido")]
+            [InlineData("513.666.800-820", "CPF invalido")]
             public void TestarCPFInvalido(string cpfTeste, string resultado)
             {
                 var resultadoExcecao = Assert.Throws<Exception>(()

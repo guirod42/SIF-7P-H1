@@ -174,7 +174,7 @@
             return new RespostaVerificacao
             {
                 Valido = false,
-                Mensagem = "Este CPF é inválido - Trata-se de um Falso positivo"
+                Mensagem = "Este CPF é invalido - Trata-se de um Falso positivo"
             };
         }
 
@@ -191,7 +191,7 @@
                 return new RespostaVerificacao
                 {
                     Valido = false,
-                    Mensagem = "O cálculo realizado indica que o CPF é inválido"
+                    Mensagem = "O cálculo realizado indica que o CPF é invalido"
                 };
             }
             return new RespostaVerificacao
