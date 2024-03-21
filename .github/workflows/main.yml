@@ -23,5 +23,9 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build AulasHumberto.sln
-    - name: Test
+    - name: Test Calculadora
       run: dotnet test Calculadora.Tests/Calculadora.Tests.csproj
+    - name: Test Empresa
+      run: dotnet test Empresa.Tests/Empresa.Tests.csproj
+    - name: Test JogoVelha
+      run: dotnet test JogoVelha.Tests/JogoVelha.Tests.csproj
