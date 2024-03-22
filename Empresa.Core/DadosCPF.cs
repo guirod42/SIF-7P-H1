@@ -146,7 +146,7 @@
                 return new RespostaVerificacao
                 {
                     Valido = false,
-                    Mensagem = "O valor inserido nao possui 11 caracteres numéricos"
+                    Mensagem = "O valor inserido não possui 11 caracteres numéricos"
                 };
             }
 

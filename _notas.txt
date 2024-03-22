@@ -1,0 +1,67 @@
+VS 2022 - Blank solution - AulasHumberto
+
+Sobe a Solução para o GitHub pelo VS, criando um novo repositório
+
+Tipos de Projeto:
+Class Library - Projeto.App
+xUnit Test Projec - Projeto.Tests
+Console App - Projeto.Console
+ASP.NET Core Web API - Projeto.API
+
+Dependências:
+App - Não depende de ninguém, pois armazena as classes
+Tests - Precisa do App
+Console - Precisa do App
+API - Precisa do App
+
+-----------------
+
+Testes automáticos pelo GitHub
+
+Primeiro ter repositório criado no GitHub e atualizado
+* Dentro do repositório, botão Actions
+* Clicar na opção: Skip this and set up a workflow yourself
+* Dentro do arquivo main.yml que vai ser criado, é onde é colocado o script responsável por executar os testes
+
+Exemplo de código:
+-----------------
+
+name: Build & Test
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set UTF-8 encoding for .NET
+      run: |
+        export LANG=en_US.UTF-8
+        export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.x
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build NomeSolucao.sln
+    - name: Test
+      run: dotnet test NomeSolucao.Tests/NomeSolucao.Tests.csproj
+
+-----------------
+
+Alterações: 
+
+- No gatilho de ativação, para funcionar com o push do Visual Studio, trocar por:
+
+on:
+  push:
+    branches:
+      - master
+
+- Para funcionar, o arquivo da Solucao (.sln) precisa estar na raiz do repositório
