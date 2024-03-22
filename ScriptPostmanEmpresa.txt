@@ -1,0 +1,169 @@
+pm.test("Teste 1: Nome em branco", function () {
+    var requestBody = {
+	  "nome": "",
+	  "salario": 1000,
+	  "cpf": "11634098633",
+	  "habilidades": [
+		"Hab1","Hab2","Hab3"
+	  ]
+	};
+
+    pm.sendRequest({
+        url: pm.request.url,
+        method: pm.request.method,
+
+        header: {
+            'Content-Type': 'application/json', // Cabeçalho 'Content-Type',
+        },
+
+        body: {
+            mode: 'raw',
+            raw: JSON.stringify(requestBody)
+        },
+
+    }, function (err, response) {
+        pm.expect(response.code).to.equal(200);
+
+        if (response.code === 200) {
+            var responseBody = response.json();
+            pm.expect(responseBody).to.have.property('status').that.is.false;
+            pm.expect(responseBody.mensagem).to.equal('Nome em branco');
+        }
+    });
+});
+
+
+pm.test("Teste 2: Salario zerado", function () {
+    var requestBody = {
+	  "nome": "Guilherme",
+	  "salario": 0,
+	  "cpf": "11634098633",
+	  "habilidades": [
+		"Hab1","Hab2","Hab3"
+	  ]
+	};
+
+    pm.sendRequest({
+        url: pm.request.url,
+        method: pm.request.method,
+
+        header: {
+            'Content-Type': 'application/json', // Cabeçalho 'Content-Type',
+        },
+
+        body: {
+            mode: 'raw',
+            raw: JSON.stringify(requestBody)
+        },
+
+    }, function (err, response) {
+        pm.expect(response.code).to.equal(200);
+
+        if (response.code === 200) {
+            var responseBody = response.json();
+            pm.expect(responseBody).to.have.property('status').that.is.false;
+            pm.expect(responseBody.mensagem).to.equal('Salario zerado ou negativo');
+        }
+    });
+});
+
+pm.test("Teste 3: Salario negativo", function () {
+    var requestBody = {
+	  "nome": "Guilherme",
+	  "salario": -1,
+	  "cpf": "11634098633",
+	  "habilidades": [
+		"Hab1","Hab2","Hab3"
+	  ]
+	};
+
+    pm.sendRequest({
+        url: pm.request.url,
+        method: pm.request.method,
+
+        header: {
+            'Content-Type': 'application/json', // Cabeçalho 'Content-Type',
+        },
+
+        body: {
+            mode: 'raw',
+            raw: JSON.stringify(requestBody)
+        },
+
+    }, function (err, response) {
+        pm.expect(response.code).to.equal(200);
+
+        if (response.code === 200) {
+            var responseBody = response.json();
+            pm.expect(responseBody).to.have.property('status').that.is.false;
+            pm.expect(responseBody.mensagem).to.equal('Salario zerado ou negativo');
+        }
+    });
+});
+
+pm.test("Teste 4: Qtd Habilidades Insuficiente I", function () {
+    var requestBody = {
+	  "nome": "Guilherme",
+	  "salario": 1000,
+	  "cpf": "11634098633",
+	  "habilidades": [
+		"Hab1","Hab2"
+	  ]
+	};
+
+    pm.sendRequest({
+        url: pm.request.url,
+        method: pm.request.method,
+
+        header: {
+            'Content-Type': 'application/json', // Cabeçalho 'Content-Type',
+        },
+
+        body: {
+            mode: 'raw',
+            raw: JSON.stringify(requestBody)
+        },
+
+    }, function (err, response) {
+        pm.expect(response.code).to.equal(200);
+
+        if (response.code === 200) {
+            var responseBody = response.json();
+            pm.expect(responseBody).to.have.property('status').that.is.false;
+            pm.expect(responseBody.mensagem).to.equal('Precisa de ao menos 3 habilidades');
+        }
+    });
+});
+
+pm.test("Teste 5: Qtd Habilidades Insuficiente II", function () {
+    var requestBody = {
+	  "nome": "Guilherme",
+	  "salario": 1000,
+	  "cpf": "11634098633",
+	  "habilidades": [
+		"Hab1","",""
+	  ]
+	};
+
+    pm.sendRequest({
+        url: pm.request.url,
+        method: pm.request.method,
+
+        header: {
+            'Content-Type': 'application/json', // Cabeçalho 'Content-Type',
+        },
+
+        body: {
+            mode: 'raw',
+            raw: JSON.stringify(requestBody)
+        },
+
+    }, function (err, response) {
+        pm.expect(response.code).to.equal(200);
+
+        if (response.code === 200) {
+            var responseBody = response.json();
+            pm.expect(responseBody).to.have.property('status').that.is.false;
+            pm.expect(responseBody.mensagem).to.equal('Precisa de ao menos 3 habilidades');
+        }
+    })});
