@@ -1,6 +1,6 @@
-VS 2022 - Blank solution - AulasHumberto
+VS 2022 - AulasHumberto
 
-Sobe a Solução para o GitHub pelo VS, criando um novo repositório
+Crie uma Blank solution e sobe a Solução para o GitHub pelo VS, criando um novo repositório:
 
 Tipos de Projeto:
 Class Library - Projeto.App
@@ -8,11 +8,17 @@ xUnit Test Projec - Projeto.Tests
 Console App - Projeto.Console
 ASP.NET Core Web API - Projeto.API
 
-Dependências:
+Dependências que precisam ser configuradas:
 App - Não depende de ninguém, pois armazena as classes
-Tests - Precisa do App
-Console - Precisa do App
-API - Precisa do App
+Tests - Precisa de acesso ao App
+Console - Precisa de acesso ao App
+API - Precisa de acesso ao App
+
+Funcionalidades:
+App (Class Library) - Responsável por armazenar a estrutura das classes
+Tests (xUnit Test Projec) - Responsável pelos testes configurados manualmente e que rodam pelo VS Studio
+Console (Console App) - Responsável pela interface visual em console
+API (ASP.NET Core Web API) - Responsável pela interface Controller da aplicação (requisições por API)
 
 -----------------
 
